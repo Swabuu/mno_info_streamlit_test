@@ -67,7 +67,7 @@ def read_csv():
 	df['Rank'] = df['Rank'].astype({'Rank':'str'})
 	df['Rank'] = df['Rank'].replace('nan', '0')
 	df['Rank'] = df['Rank'].apply(lambda x: x.split('.')[0])
-	df['Rank'] = df['Rank'].astype({'Rank':'int'}) 
+	df['Rank'] = df['Rank'].astype({'Rank':'str'}) 
  
 	
 	df['Subs'] = df['Subs'].replace('nan', '0')
