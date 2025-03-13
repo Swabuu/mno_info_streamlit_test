@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 
-MCCMNC_FILE = '1741865932mccmnc.xlsx'
+MCCMNC_FILE = '1669897178mccmnc.xlsx'
 MNO_INFO_FILE = '1741863539_List_of_mobile_network_operators.csv'
 
 # Config
@@ -31,7 +31,7 @@ st.markdown("""
         """, unsafe_allow_html=True)
 
 
-@st.cache
+@st.cache_data
 def read_excel(file):
 	df = pd.read_excel(
 		io = '1669897178mccmnc.xlsx',
@@ -56,10 +56,10 @@ def extract_quarter_pattern():
 
 	return r
 
-@st.cache
+@st.cache_data
 def read_csv():
 	col_names = ['Country',	'Rank',	'Operator',	'Subscribers']
-	df = pd.read_csv(MNO_INFO_FILE, delimiter=';', skiprows=0, usecols=col_names, low_memory=False)
+	df = pd.read_csv(MNO_INFO_FILE, dtype={'Country': str,'Rank': str,'Operator': str,'Subscribers': str,'Owner': str}, delimiter=';', skiprows=0, usecols=col_names, low_memory=False)
 	df['Subs'] = df['Subscribers'].astype({'Subscribers':'str'})
 	df['Subs'] = df['Subs'].apply(lambda x: not_number(x))
 	df['Subs'] = df['Subs'].replace('nan', '0')
@@ -72,7 +72,7 @@ def read_csv():
 	
 	df['Subs'] = df['Subs'].replace('nan', '0')
 	
-	#df['Subs'] = df['Subs'].replace('%', '')
+	df['Subs'] = df['Subs'].replace('%', '')
 	df['Subs'] = df['Subs'].astype({'Subs':'float'})
 
 	return df
