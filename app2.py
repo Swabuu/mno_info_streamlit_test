@@ -4,7 +4,7 @@ import plotly.express as px
 import numpy as np
 
 MCCMNC_FILE = '1669897178mccmnc.xlsx'
-MNO_INFO_FILE = '1670673844_List_of_mobile_network_operators.csv'
+MNO_INFO_FILE = '1741863539_List_of_mobile_network_operators.csv'
 
 # Config
 st.set_page_config(
