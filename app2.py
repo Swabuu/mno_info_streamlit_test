@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 
-MCCMNC_FILE = '1669897178mccmnc.xlsx'
+MCCMNC_FILE = '1741865932mccmnc.xlsx'
 MNO_INFO_FILE = '1741863539_List_of_mobile_network_operators.csv'
 
 # Config
